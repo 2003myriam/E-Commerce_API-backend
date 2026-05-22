@@ -8,5 +8,6 @@ const router =express.Router();
  
 router.post("/product", verifyToken,authorize(["admin"]),ProductController.AddProduct)
 router.put("/product/:id", verifyToken,ProductController.ModifyProduct)
+router.delete("/product/:id", verifyToken,ProductController.DeletProduct)
  
 module.exports= router;
