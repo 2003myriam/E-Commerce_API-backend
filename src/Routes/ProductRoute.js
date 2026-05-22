@@ -7,6 +7,6 @@ const { authorize } = require("../Middlewares/Autorize");
 const router =express.Router();
  
 router.post("/product", verifyToken,authorize(["admin"]),ProductController.AddProduct)
-router.put("/product/:id", verifyToken,authorize(["admin"]),ProductController.ModifyProduct)
+router.put("/product/:id", verifyToken,ProductController.ModifyProduct)
  
 module.exports= router;
