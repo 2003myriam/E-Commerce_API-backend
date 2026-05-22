@@ -85,20 +85,33 @@ async  DeletProduct(req,res,next) {
        return next(error)
     }
   }
+
+  /* ================================================= */
+/* =====Getting all Products ==== */
+/* ================================================ */
+async  GetAllProduct(req,res,next){
+  try {
+  const getALLproduct=await Product.find()
+
+  res.json({
+   "message" : `All Product  `,
+    getALLproduct
+  })
+  } catch (error) {
+      next(error)
+  }
+}
   
-  /* ================== */
-/* ================== */
-/* =====Getting all categories==== */
-/* =================== */
+/* ================================================= */
+/* =====Getting all Products of same  category==== */
+/* ================================================ */
 async  GetAllProductOfCategory(req,res,next){
   try {
   const{ CategoryId}=req.query
-  const getCtegory=await Product.find({CategoryId})
-  console.log(getCtegory);
-  
+  const getproduct=await Product.find({CategoryId})
   res.json({
    "message" : `All Product in  this category`,
-    getCtegory
+    getproduct
   })
   } catch (error) {
       next(error)

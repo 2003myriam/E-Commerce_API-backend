@@ -7,6 +7,7 @@ const { authorize } = require("../Middlewares/Autorize");
 const router =express.Router();
  
 router.post("/product", verifyToken,authorize(["admin"]),ProductController.AddProduct)
+router.get("/product",ProductController.GetAllProduct)
 router.put("/product/:id", verifyToken,ProductController.ModifyProduct)
 router.delete("/product/:id", verifyToken,ProductController.DeletProduct)
 router.get("/category",ProductController.GetAllProductOfCategory)
