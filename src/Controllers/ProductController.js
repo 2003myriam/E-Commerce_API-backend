@@ -85,7 +85,26 @@ async  DeletProduct(req,res,next) {
        return next(error)
     }
   }
-
-
+  
+  /* ================== */
+/* ================== */
+/* =====Getting all categories==== */
+/* =================== */
+async  GetAllProductOfCategory(req,res,next){
+  try {
+  const{ CategoryId}=req.query
+  const getCtegory=await Product.find({CategoryId})
+  console.log(getCtegory);
+  
+  res.json({
+   "message" : `All Product in  this category`,
+    getCtegory
+  })
+  } catch (error) {
+      next(error)
+  }
 }
+}
+
+
 module.exports=new ProductController 

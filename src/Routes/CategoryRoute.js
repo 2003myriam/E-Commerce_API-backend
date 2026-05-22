@@ -7,5 +7,6 @@ const router =express.Router();
 
 
 router.post("/category", verifyToken,authorize(["admin"]),CategoryController.AddCategories)
+
  
 module.exports= router;

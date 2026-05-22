@@ -2,9 +2,6 @@ const { Category } = require("../Models/Category");
 
 class CategoryController{
 
- /* =========================*/
-/* ========================= */
-/* ========Register============ */
 async  AddCategories(req,res,next){
   try {
   console.log(req.body);
@@ -20,6 +17,7 @@ async  AddCategories(req,res,next){
       next(error)
   }
 }
+
 }
 
 module.exports= new CategoryController
